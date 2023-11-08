@@ -1,0 +1,36 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n,count=0;
+	    cin>>n;
+	    int a[n],c[n];
+	    bool b[n]={false};
+	    for(int i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	    }
+	    for(int i=0;i<n;i++)
+	    {
+	        if(b[a[i]-1]==false)
+	        {
+	            count++;
+	            b[a[i]-1]=true;
+	        }
+	        else
+	        if(b[a[i]-1]==true)
+	        {
+	            count--;
+	            b[a[i]-1]=false;
+	        }
+	        c[i]=count;
+	    }
+	    cout<<*max_element(c,c+n)<<endl;
+	}
+	return 0;
+}
